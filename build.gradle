@@ -31,10 +31,10 @@ ktlint {
     verbose = true
     android = true
     outputToConsole = true
-//    reporters {
-//        reporter(org.jlleitschuh.gradle.ktlint.reporter.ReporterType.PLAIN)
-//        reporter(org.jlleitschuh.gradle.ktlint.reporter.ReporterType.CHECKSTYLE)
-//    }
+    reporters {
+        reporter(org.jlleitschuh.gradle.ktlint.reporter.ReporterType.PLAIN)
+        reporter(org.jlleitschuh.gradle.ktlint.reporter.ReporterType.CHECKSTYLE)
+    }
     ignoreFailures = false
     enableExperimentalRules = true
     // additionalEditorconfigFile = file("/some/additional/.editorconfig")

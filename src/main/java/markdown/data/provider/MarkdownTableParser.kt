@@ -43,7 +43,8 @@ fun parseMarkdownTable(src: String, numHeaderLines: Int = 2): List<List<String>>
         .toList()
 }
 
-private val MARKDOWN_TABLE_SPLITTER = """ *\| *""".toRegex()
+private val MARKDOWN_TABLE_SPLITTER =
+    """ *\| *""".toRegex()
 
 private fun parseColumns(rowString: String): List<String> {
     return rowString.split(MARKDOWN_TABLE_SPLITTER).filter { it.isNotEmpty() }
