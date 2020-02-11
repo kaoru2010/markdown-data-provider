@@ -3,8 +3,8 @@ plugins {
     id 'org.jetbrains.kotlin.plugin.serialization' version '1.3.61'
 }
 
-group 'org.example'
-version '1.0-SNAPSHOT'
+group 'markdown.data.provider'
+version '0.0.1-SNAPSHOT'
 
 repositories {
     mavenCentral()
