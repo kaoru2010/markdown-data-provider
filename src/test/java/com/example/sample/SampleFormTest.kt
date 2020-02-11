@@ -2,10 +2,10 @@ package com.example.sample
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import markdown.table.parser.RowWithHeaderDecoder
-import markdown.table.parser.parseMarkdownTable
-import markdown.table.parser.toParamList
-import markdown.table.parser.transpose
+import markdown.data.provider.RowWithHeaderDecoder
+import markdown.data.provider.parseMarkdownTable
+import markdown.data.provider.toParamList
+import markdown.data.provider.transpose
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith

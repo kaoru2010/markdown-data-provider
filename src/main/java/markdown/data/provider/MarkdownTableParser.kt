@@ -1,4 +1,4 @@
-package markdown.table.parser
+package markdown.data.provider
 
 import kotlinx.serialization.Decoder
 import kotlinx.serialization.KSerializer

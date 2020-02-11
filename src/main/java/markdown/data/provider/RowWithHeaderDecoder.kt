@@ -1,4 +1,4 @@
-package markdown.table.parser
+package markdown.data.provider
 
 import kotlinx.serialization.NamedValueDecoder
 import kotlinx.serialization.SerialDescriptor
@@ -59,7 +59,7 @@ class RowWithHeaderDecoder(
         val value = getValue(tag)
         return value.toShort()
     }
-    
+
     private fun getValue(tag: String): String {
         val index = requireNotNull(headerMap[tag])
         return row[index]
