@@ -1,12 +1,14 @@
-package markdown.table.parser
+package com.example.sample
 
-import com.example.sample.SampleForm
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import markdown.table.parser.RowWithHeaderDecoder
+import markdown.table.parser.parseAsMarkdownTable
+import markdown.table.parser.toParamList
+import markdown.table.parser.transpose
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.junit.runners.JUnit4
 import org.junit.runners.Parameterized
 
 private val MARKDOWN_TABLE = """
@@ -22,7 +24,7 @@ private val MARKDOWN_TABLE = """
 """.trimIndent()
 
 @RunWith(Parameterized::class)
-class SampleTest(
+class SampleFormTest(
     private val param: Param
 ) {
 
@@ -75,7 +77,7 @@ class SampleTest(
         fun data(): List<Any> {
             val matrix = parseAsMarkdownTable(MARKDOWN_TABLE)
             val transposedMatrix: List<List<String>> = matrix.transpose()
-            return transposedMatrix.toParamList(Param.serializer(), ::MyNamedValueDecoder)
+            return transposedMatrix.toParamList(Param.serializer(), ::RowWithHeaderDecoder)
         }
     }
 }
