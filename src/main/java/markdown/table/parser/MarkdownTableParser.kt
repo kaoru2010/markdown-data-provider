@@ -31,8 +31,6 @@ fun <T> List<List<String>>.toParamList(serializer: KSerializer<T>, createDecoder
         .toList()
 }
 
-private val MARKDOWN_TABLE_SPLITTER = """ *\| *""".toRegex()
-
 /**
  * マークダウン形式の文字列をパースしてマトリックスを得る
  */
@@ -40,7 +38,13 @@ fun parseMarkdownTable(src: String, numHeaderLines: Int = 2): List<List<String>>
     return src.split("\n")
         .asSequence()
         .drop(numHeaderLines)
-        .map { it.split(MARKDOWN_TABLE_SPLITTER).filter { it.isNotEmpty() } }
+        .map(::parseColumns)
         .filter { it.size >= 2 }
         .toList()
+}
+
+private val MARKDOWN_TABLE_SPLITTER = """ *\| *""".toRegex()
+
+private fun parseColumns(rowString: String): List<String> {
+    return rowString.split(MARKDOWN_TABLE_SPLITTER).filter { it.isNotEmpty() }
 }
