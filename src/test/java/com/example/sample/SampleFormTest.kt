@@ -3,7 +3,7 @@ package com.example.sample
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import markdown.table.parser.RowWithHeaderDecoder
-import markdown.table.parser.parseAsMarkdownTable
+import markdown.table.parser.parseMarkdownTable
 import markdown.table.parser.toParamList
 import markdown.table.parser.transpose
 import org.junit.Before
@@ -75,7 +75,7 @@ class SampleFormTest(
         @JvmStatic
         @Parameterized.Parameters(name = "[{index}] {0}")
         fun data(): List<Any> {
-            val matrix = parseAsMarkdownTable(MARKDOWN_TABLE)
+            val matrix = parseMarkdownTable(MARKDOWN_TABLE)
             val transposedMatrix: List<List<String>> = matrix.transpose()
             return transposedMatrix.toParamList(Param.serializer(), ::RowWithHeaderDecoder)
         }

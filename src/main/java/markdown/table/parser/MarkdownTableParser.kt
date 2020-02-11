@@ -34,7 +34,7 @@ fun <T> List<List<String>>.toParamList(serializer: KSerializer<T>, createDecoder
 /**
  * マークダウン形式の文字列をパースしてマトリックスを得る
  */
-fun parseAsMarkdownTable(src: String): List<List<String>> {
+fun parseMarkdownTable(src: String): List<List<String>> {
     return src.split("\n")
         .asSequence()
         .drop(2)
