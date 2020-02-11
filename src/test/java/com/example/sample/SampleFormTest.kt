@@ -11,7 +11,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
 
-private val MARKDOWN_TABLE = """
+private const val MARKDOWN_TABLE = """
 | input/output     | 0     | 1       | 2       | 3       | 4     | 5     | 6     |
 |------------------|-------|---------|---------|---------|-------|-------|-------|
 | <INPUT>          |       |         |         |         |       |       |       |
@@ -21,7 +21,7 @@ private val MARKDOWN_TABLE = """
 | <OUTPUT>         |       |         |         |         |       |       |       |
 | canSubmit        | o     | o       | o       | o       | x     | x     | x     |
 | showsErrorDialog | x     | o       | o       | o       | -     | -     | -     |
-""".trimIndent()
+"""
 
 @RunWith(Parameterized::class)
 class SampleFormTest(
