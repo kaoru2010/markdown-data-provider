@@ -12,25 +12,26 @@ class RowWithHeaderDecoder(
     private val row: List<String>
 ) : NamedValueDecoder() {
     override fun decodeTaggedString(tag: String): String {
-        val index = requireNotNull(headerMap[tag])
-        return row[index]
+        return getValue(tag)
     }
 
     override fun decodeTaggedEnum(tag: String, enumDescription: SerialDescriptor): Int {
-        val index = requireNotNull(headerMap[tag])
-        val value = row[index]
+        val value = getValue(tag)
         return enumDescription.elementNames().indexOf(value)
     }
 
     override fun decodeTaggedBoolean(tag: String): Boolean {
-        val index = requireNotNull(headerMap[tag])
-        val value = row[index]
+        val value = getValue(tag)
         return value == "o"
     }
 
     override fun decodeTaggedNotNullMark(tag: String): Boolean {
-        val index = requireNotNull(headerMap[tag])
-        val value = row[index]
+        val value = getValue(tag)
         return value !in arrayOf("-", "−", "/")
+    }
+
+    private fun getValue(tag: String): String {
+        val index = requireNotNull(headerMap[tag])
+        return row[index]
     }
 }
