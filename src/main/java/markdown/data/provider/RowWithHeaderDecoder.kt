@@ -2,7 +2,7 @@ package markdown.data.provider
 
 import kotlinx.serialization.NamedValueDecoder
 import kotlinx.serialization.SerialDescriptor
-import kotlinx.serialization.elementNames
+import kotlinx.serialization.getElementIndexOrThrow
 
 /**
  * ヘッダーと行からdata classへのデコーダー
@@ -17,7 +17,7 @@ class RowWithHeaderDecoder(
 
     override fun decodeTaggedEnum(tag: String, enumDescription: SerialDescriptor): Int {
         val value = getValue(tag)
-        return enumDescription.elementNames().indexOf(value)
+        return enumDescription.getElementIndexOrThrow(value)
     }
 
     override fun decodeTaggedBoolean(tag: String): Boolean {
