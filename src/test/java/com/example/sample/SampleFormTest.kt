@@ -11,18 +11,18 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
 
-private const val MARKDOWN_TABLE =
-"""
-| input/output     | 0     | 1       | 2       | 3       | 4     | 5     | 6     |
-|------------------|-------|---------|---------|---------|-------|-------|-------|
-| <INPUT>          |       |         |         |         |       |       |       |
-| email            | valid | valid   | valid   | valid   | valid | valid | blank |
-| emailConfirm     | valid | valid   | invalid | invalid | valid | blank | valid |
-| password         | valid | invalid | valid   | invalid | blank | valid | valid |
-| <OUTPUT>         |       |         |         |         |       |       |       |
-| canSubmit        | o     | o       | o       | o       | x     | x     | x     |
-| showsErrorDialog | x     | o       | o       | o       | -     | -     | -     |
-"""
+private val MARKDOWN_TABLE =
+    """
+    | input/output     | 0     | 1       | 2       | 3       | 4     | 5     | 6     |
+    |------------------|-------|---------|---------|---------|-------|-------|-------|
+    | <INPUT>          |       |         |         |         |       |       |       |
+    | email            | valid | valid   | valid   | valid   | valid | valid | blank |
+    | emailConfirm     | valid | valid   | invalid | invalid | valid | blank | valid |
+    | password         | valid | invalid | valid   | invalid | blank | valid | valid |
+    | <OUTPUT>         |       |         |         |         |       |       |       |
+    | canSubmit        | o     | o       | o       | o       | x     | x     | x     |
+    | showsErrorDialog | x     | o       | o       | o       | -     | -     | -     |
+    """.trimIndent()
 
 @RunWith(Parameterized::class)
 class SampleFormTest(
