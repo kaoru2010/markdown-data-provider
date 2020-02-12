@@ -76,9 +76,9 @@ class SampleFormTest(
         @JvmStatic
         @Parameterized.Parameters(name = "[{index}] {0}")
         fun data(): List<Any> {
-            val matrix = parseMarkdownTable(MARKDOWN_TABLE)
-            val transposedMatrix: List<List<String>> = matrix.transpose()
-            return transposedMatrix.toParamList(Param.serializer(), ::RowWithHeaderDecoder)
+            return parseMarkdownTable(MARKDOWN_TABLE)
+                .transpose()
+                .toParamList(Param.serializer(), ::RowWithHeaderDecoder)
         }
     }
 }
